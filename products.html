@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>产品分类 · 金加金阀门</title>
+  <style>
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 0 0% 9%;
+      --muted: 0 0% 96%;
+      --muted-foreground: 0 0% 45%;
+      --accent: 211 100% 50%;
+      --accent-foreground: 0 0% 100%;
+      --border: 0 0% 91%;
+      --radius: 12px;
+      --space-xs: 4px; --space-sm: 8px; --space-md: 16px; --space-lg: 24px; --space-xl: 32px; --space-2xl: 48px; --space-3xl: 64px;
+      --ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
+      --ease-in-out: cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+    .dark, [data-theme="dark"] {
+      --background: 0 0% 8%; --foreground: 0 0% 95%; --muted: 0 0% 12%; --muted-foreground: 0 0% 70%; --accent: 211 100% 65%; --border: 0 0% 20%;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: hsl(var(--background)); color: hsl(var(--foreground)); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    .container { max-width:1200px; margin:0 auto; padding:0 var(--space-lg); }
+    .text-headline { font-size: clamp(1.75rem, 4vw, 3rem); font-weight:600; }
+    .text-title { font-size: clamp(1.125rem, 2.5vw, 1.5rem); font-weight:600; }
+    .text-body { font-size: clamp(0.875rem, 2vw, 1.125rem); }
+    .text-caption { font-size: clamp(0.75rem, 1.5vw, 0.875rem); color:hsl(var(--muted-foreground)); }
+    .glass { background: rgba(255,255,255,0.88); border:1px solid hsl(var(--border)); backdrop-filter: blur(20px); }
+    .dark .glass { background: rgba(20,20,20,0.88); border-color: rgba(255,255,255,0.08); }
+    .glass-card { border-radius: var(--radius); padding: var(--space-xl); display:flex; flex-direction:column; transition: all 0.3s ease; }
+    .glass-card:hover { transform:translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .glass-button { border-radius: var(--radius); padding:12px 16px; font-weight:500; display:inline-flex; align-items:center; justify-content:center; min-height:44px; text-decoration:none; color: hsl(var(--foreground)); transition: all 0.2s; }
+    .glass-button-primary { background: hsl(var(--accent)); color: white; border: none; }
+    .glass-button-primary:hover { background: hsl(var(--accent) / 0.9); }
+    @keyframes fade-in { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    .animate-fade-in { animation: fade-in 0.6s ease forwards; }
+    .delay-100 { animation-delay:0.1s; } .delay-200 { animation-delay:0.2s; } .delay-300 { animation-delay:0.3s; }
+    .section-secondary { background: hsl(var(--muted)); }
+    .navbar { display:flex; justify-content:space-between; align-items:center; padding:var(--space-md) 0; border-bottom:1px solid hsl(var(--border)); backdrop-filter:blur(20px); position:sticky; top:0; z-index:10; background: rgba(255,255,255,0.7); }
+    .dark .navbar { background: rgba(20,20,20,0.7); }
+    .nav-links { display:flex; gap:var(--space-lg); align-items:center; }
+    .nav-links a { color:hsl(var(--foreground)); text-decoration:none; font-size:0.9rem; }
+    .nav-links a.active { font-weight:600; color:hsl(var(--accent)); }
+    .theme-toggle { background:none; border:none; cursor:pointer; font-size:1.4rem; }
+    .grid-products { display:grid; gap:var(--space-lg); grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    .product-img { width:100%; aspect-ratio:3/4; overflow:hidden; border-radius:10px; background:hsl(var(--muted)); margin-bottom:var(--space-md); }
+    .product-img img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s; }
+    .glass-card:hover .product-img img { transform: scale(1.03); }
+    .category-section { padding:var(--space-2xl) 0; }
+    .category-title { margin-bottom:var(--space-lg); display:flex; align-items:center; gap:var(--space-sm); font-size:1.8rem; }
+    .category-title::before { content:''; display:block; width:6px; height:28px; background:hsl(var(--accent)); border-radius:4px; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+      <span class="text-title">✨ 金加金阀门</span>
+      <div class="nav-links">
+        <a href="index.html">关于我们</a>
+        <a href="products.html" class="active">产品分类</a>
+        <button class="theme-toggle" id="themeToggle">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <section style="padding:var(--space-2xl) 0 var(--space-lg);">
+    <div class="container">
+      <h1 class="text-headline animate-fade-in">产品分类</h1>
+      <p class="text-body animate-fade-in delay-100" style="color:hsl(var(--muted-foreground)); max-width:720px;">覆盖法兰式、对夹式及其他特殊工况蝶阀，支持碳钢/不锈钢材质以及电动、气动、加长杆等非标定制。</p>
+    </div>
+  </section>
+
+  <!-- 法兰蝶阀 -->
+  <section class="category-section section-secondary">
+    <div class="container">
+      <div class="category-title text-headline">法兰蝶阀</div>
+      <div class="grid-products">
+        <div class="glass-card animate-fade-in"><div class="product-img"><img src="images/d343h-light-type.png" alt="D343H 轻型法兰蝶阀" loading="lazy"></div><h3 class="text-title">D343H 三偏心涡轮传动碳钢密封法兰蝶阀</h3><p class="text-caption">压力 PN10/16/25，轻型、中重型、重型可选，口径 DN50~DN1000，适合常规水系统与低压气体。</p></div>
+        <div class="glass-card animate-fade-in delay-100"><div class="product-img"><img src="images/d343h-wcb-carbon-steel.png" alt="D343H WCB 碳钢法兰蝶阀" loading="lazy"></div><h3 class="text-title">D343H（WCB）三偏心涡轮传动碳钢密封法兰蝶阀</h3><p class="text-caption">压力 40C，高强度碳钢阀体，化工、船舶等高要求场合首选。</p></div>
+        <div class="glass-card animate-fade-in delay-200"><div class="product-img"><img src="images/d343w-304-stainless.png" alt="D343W 304 不锈钢法兰蝶阀" loading="lazy"></div><h3 class="text-title">D343W（304）三偏心涡轮传动本体密封法兰蝶阀</h3><p class="text-caption">压力 PN10/16/25，304 不锈钢材质，耐腐蚀，适合中高压工况。</p></div>
+        <div class="glass-card animate-fade-in delay-300"><div class="product-img"><img src="images/d343w-316l-stainless.png" alt="D343W 316L 不锈钢法兰蝶阀" loading="lazy"></div><h3 class="text-title">D343W（316L）三偏心涡轮传动本体密封法兰蝶阀</h3><p class="text-caption">压力 16RL/25RL，316L 材质，厚壁阀体，适用于高压、高温及关键管道。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 对夹蝶阀 -->
+  <section class="category-section section-secondary">
+    <div class="container">
+      <div class="category-title text-headline">对夹蝶阀</div>
+      <div class="grid-products">
+        <div class="glass-card animate-fade-in"><div class="product-img"><img src="images/d373h-wafer-type.png" alt="D373H 对夹蝶阀" loading="lazy"></div><h3 class="text-title">D373H 三偏心涡轮传动碳钢密封对夹蝶阀</h3><p class="text-caption">压力 10/16/25C，轻型、重型可选，口径 DN50~DN1000，化工、给排水等领域表现突出。</p></div>
+        <div class="glass-card animate-fade-in delay-100"><div class="product-img"><img src="images/d373w-304-wafer.png" alt="D373W 304 不锈钢对夹蝶阀" loading="lazy"></div><h3 class="text-title">D373W（304）三偏心涡轮传动不锈钢密封对夹蝶阀</h3><p class="text-caption">压力 PN10/16/25，304 材质，耐腐蚀，安装轻便。</p></div>
+        <div class="glass-card animate-fade-in delay-200"><div class="product-img"><img src="images/d373w-316l-wafer.png" alt="D373W 316L 对夹蝶阀" loading="lazy"></div><h3 class="text-title">D373W（316L）三偏心涡轮传动不锈钢密封对夹蝶阀</h3><p class="text-caption">压力 16RL，316L 材质，耐强腐蚀，适合化工、海洋等严苛环境。</p></div>
+        <div class="glass-card animate-fade-in delay-300"><div class="product-img"><img src="images/d373h-heavy-type.png" alt="D373H 重型对夹蝶阀" loading="lazy"></div><h3 class="text-title">D373H 重型对夹蝶阀</h3><p class="text-caption">厚壁结构，适用于高压差及频繁开关场合。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 其他蝶阀 -->
+  <section class="category-section section-secondary">
+    <div class="container">
+      <div class="category-title text-headline">其他蝶阀</div>
+      <div class="grid-products">
+        <div class="glass-card animate-fade-in"><div class="product-img"><img src="images/d363h-welded.png" alt="D363H 焊接蝶阀" loading="lazy"></div><h3 class="text-title">D363H 焊接蝶阀</h3><p class="text-caption">压力 16/25C，直接焊接于管道，零泄漏风险，适用高温高压蒸汽及热油系统。</p></div>
+        <div class="glass-card animate-fade-in delay-100"><div class="product-img"><img src="images/ds343h-bidirectional.png" alt="Ds343H 双向蝶阀" loading="lazy"></div><h3 class="text-title">Ds343H 双向蝶阀</h3><p class="text-caption">压力 16C，介质可双向流动，密封无方向性，安装更灵活。</p></div>
+        <div class="glass-card animate-fade-in delay-200"><div class="product-img"><img src="images/d341w-ventilation.png" alt="D341W 通风蝶阀" loading="lazy"></div><h3 class="text-title">D341W 通风蝶阀</h3><p class="text-caption">压力 1C，低泄漏率，适用于烟气、粉尘、通风管道，可配电动调节。</p></div>
+        <div class="glass-card animate-fade-in delay-300"><div class="product-img"><img src="images/telescopic-extension.png" alt="伸缩/加长杆蝶阀" loading="lazy"></div><h3 class="text-title">伸缩蝶阀 / 加长杆蝶阀</h3><p class="text-caption">可补偿管道轴向位移，或操作机构加长，适合深井、管沟等特殊安装。</p></div>
+        <div class="glass-card animate-fade-in"><div class="product-img"><img src="images/custom-valve.png" alt="非标定制蝶阀" loading="lazy"></div><h3 class="text-title">非标定制蝶阀</h3><p class="text-caption">根据客户图纸或工况要求定制，包括特殊材质、异形法兰、高温高速等。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="padding:var(--space-xl) 0; border-top:1px solid hsl(var(--border)); text-align:center;" class="text-caption">
+    <div class="container">© 2026 金加金阀门 · 硬密封蝶阀专业制造商</div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.setAttribute('data-theme', 'dark'); toggle.textContent = '☀️';
+    }
+    toggle.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.documentElement.toggleAttribute('data-theme'); 
+      toggle.textContent = isDark ? '🌙' : '☀️';
+    });
+  </script>
+</body>
+</html>
